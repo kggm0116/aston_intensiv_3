@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">AstonTask3</string>
     <string name="label_flags">Flags</string>
+    <string name="label_images">Images</string>
 </resources>

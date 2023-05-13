@@ -43,7 +43,8 @@
                 android:id="@+id/option_glide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/option_glide" />
+                android:text="@string/option_glide"
+                tools:checked="true" />
 
             <RadioButton
                 android:id="@+id/option_coil"

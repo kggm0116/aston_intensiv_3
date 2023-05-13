@@ -48,10 +48,10 @@ class ImagesActivity : AppCompatActivity() {
     private fun setViewListeners() {
         binding.radioGroupImageLoaders.setOnCheckedChangeListener { _, index ->
             val loader = when (index) {
-                binding.optionGlide.id ->ImageLoader.GlideLoader
-                binding.optionCoil.id -> ImageLoader.CoilLoader
-                binding.optionPicasso.id -> ImageLoader.PicassoLoader
-                binding.optionNative.id -> ImageLoader.NativeLoader
+                binding.optionGlide.id -> GlideLoader
+                binding.optionCoil.id -> CoilLoader
+                binding.optionPicasso.id -> PicassoLoader
+                binding.optionNative.id -> NativeLoader
                 else -> throw Error("Unknown image loader option checkbox was selected")
             }
             imageLoaderIndex = getIndexOfLoader(loader)
@@ -68,31 +68,34 @@ class ImagesActivity : AppCompatActivity() {
     }
 
     private fun loadImageFromCurrentUrl() {
+        if (imageUrlText == "")
+            return
+        binding.imageView.setImageDrawable(null)
         getLoaderFromIndex(imageLoaderIndex)
             .load(this, imageUrlText, binding.imageView) { onImageLoadFailed() }
     }
 
     private fun getIndexOfLoader(loader: ImageLoader) = when (loader) {
-        ImageLoader.GlideLoader -> 0
-        ImageLoader.CoilLoader -> 1
-        ImageLoader.PicassoLoader -> 2
-        ImageLoader.NativeLoader -> 3
+        GlideLoader -> 0
+        CoilLoader -> 1
+        PicassoLoader -> 2
+        NativeLoader -> 3
     }
 
     private fun getLoaderFromIndex(index: Int) = when (index) {
-        0 -> ImageLoader.GlideLoader
-        1 -> ImageLoader.CoilLoader
-        2 -> ImageLoader.PicassoLoader
-        3 -> ImageLoader.NativeLoader
+        0 -> GlideLoader
+        1 -> CoilLoader
+        2 -> PicassoLoader
+        3 -> NativeLoader
         else -> throw Error("Index '${index}' can't be converted to ImageLoader")
     }
 
     private fun checkLoaderOption() {
         val option = when (getLoaderFromIndex(imageLoaderIndex)) {
-            ImageLoader.GlideLoader -> binding.optionGlide
-            ImageLoader.CoilLoader -> binding.optionCoil
-            ImageLoader.PicassoLoader -> binding.optionPicasso
-            ImageLoader.NativeLoader -> binding.optionNative
+            GlideLoader -> binding.optionGlide
+            CoilLoader -> binding.optionCoil
+            PicassoLoader -> binding.optionPicasso
+            NativeLoader -> binding.optionNative
         }
         binding.radioGroupImageLoaders.check(option.id)
     }

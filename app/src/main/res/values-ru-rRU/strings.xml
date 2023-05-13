@@ -2,4 +2,7 @@
 <resources>
     <string name="label_flags">Флаги</string>
     <string name="label_images">Картинки</string>
+    <string name="hint_image_url">Ссылка на картинку</string>
+    <string name="option_native">Нативно</string>
+    <string name="image_load_failed_toast">Не удалось загрузить картинку</string>
 </resources>

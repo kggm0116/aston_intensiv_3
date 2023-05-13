@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".flags.FlagsActivity"
+    tools:ignore="SpeakableTextPresentCheck">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp">
+
+        <include
+            android:id="@+id/layout_austria"
+            style="@style/style_flag"
+            layout="@layout/flag_austria"
+            app:layout_constraintBottom_toTopOf="@id/layout_poland"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <include
+            android:id="@+id/layout_poland"
+            style="@style/style_flag"
+            layout="@layout/flag_poland"
+            app:layout_constraintBottom_toTopOf="@id/layout_italy"
+            app:layout_constraintTop_toBottomOf="@id/layout_austria" />
+
+        <include
+            android:id="@+id/layout_italy"
+            style="@style/style_flag"
+            layout="@layout/flag_italy"
+            app:layout_constraintBottom_toTopOf="@id/layout_columbia"
+            app:layout_constraintTop_toBottomOf="@id/layout_poland" />
+
+        <include
+            android:id="@+id/layout_columbia"
+            style="@style/style_flag"
+            layout="@layout/flag_columbia"
+            app:layout_constraintBottom_toTopOf="@id/layout_madagascar"
+            app:layout_constraintTop_toBottomOf="@id/layout_italy" />
+
+        <include
+            android:id="@+id/layout_madagascar"
+            style="@style/style_flag"
+            layout="@layout/flag_madagascar"
+            app:layout_constraintBottom_toTopOf="@id/layout_thailand"
+            app:layout_constraintTop_toBottomOf="@id/layout_columbia" />
+
+        <include
+            android:id="@+id/layout_thailand"
+            style="@style/style_flag"
+            layout="@layout/flag_thailand"
+            app:layout_constraintBottom_toTopOf="@id/layout_denmark"
+            app:layout_constraintTop_toBottomOf="@id/layout_madagascar" />
+
+        <include
+            android:id="@+id/layout_denmark"
+            style="@style/style_flag"
+            layout="@layout/flag_denmark"
+            app:layout_constraintBottom_toTopOf="@id/layout_switzerland"
+            app:layout_constraintTop_toBottomOf="@id/layout_thailand" />
+
+        <include
+            android:id="@+id/layout_switzerland"
+            style="@style/style_flag"
+            layout="@layout/flag_switzerland"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_denmark" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

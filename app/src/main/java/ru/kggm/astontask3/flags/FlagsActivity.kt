@@ -2,6 +2,7 @@ package ru.kggm.astontask3.flags
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import ru.kggm.astontask3.databinding.ActivityFlagsBinding
 
 class FlagsActivity : AppCompatActivity() {

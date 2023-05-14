@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name" translatable="false">AstonTask3</string>
+    <string name="label_flags">Flags</string>
+    <string name="label_images">Images</string>
+    <string name="hint_image_url">Image URL</string>
+    <string name="option_glide" translatable="false">Glide</string>
+    <string name="option_coil" translatable="false">Coil</string>
+    <string name="option_picasso" translatable="false">Picasso</string>
+    <string name="option_native">Native</string>
+    <string name="image_load_failed_toast">Failed to load image</string>
+</resources>

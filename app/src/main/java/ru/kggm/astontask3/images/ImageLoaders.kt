@@ -40,28 +40,30 @@ object GlideLoader : ImageLoader() {
     ) {
         Glide.with(context)
             .load(url)
-            .listener(object : RequestListener<Drawable> {
-
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    onError()
-                    return false
-                }
-
-                override fun onResourceReady(
-                    resource: Drawable?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    dataSource: DataSource?,
-                    isFirstResource: Boolean
-                ) = false
-            })
+            .listener(ErrorListener(onError))
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(imageView)
+    }
+
+    private class ErrorListener(private val onError: () -> Unit) : RequestListener<Drawable> {
+
+        override fun onLoadFailed(
+            e: GlideException?,
+            model: Any?,
+            target: Target<Drawable>?,
+            isFirstResource: Boolean
+        ): Boolean {
+            onError()
+            return false
+        }
+
+        override fun onResourceReady(
+            resource: Drawable?,
+            model: Any?,
+            target: Target<Drawable>?,
+            dataSource: DataSource?,
+            isFirstResource: Boolean
+        ) = false
     }
 }
 
